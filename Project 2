@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Form with Background and Falling Leaves</title>
+    <style>
+        @keyframes moveRightLeft {
+            0% { left: 100%; }
+            100% { left: -100%; }
+        }
+
+        @keyframes fallDown {
+            0% { top: -100px; opacity: 0; transform: rotate(0deg); }
+            50% { opacity: 1; transform: rotate(180deg); }
+            100% { top: calc(100vh - 100px); opacity: 0; transform: rotate(360deg); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://cdn.bulbapp.io/frontend/images/a225dd1c-a092-4840-bafc-05a5232ad3c5/1'); /* Updated background image URL */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 0.5s ease;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative; /* Ensure dialog box can be positioned relative to body */
+            z-index: 1; /* Ensure dialog box is above other content */
+        }
+
+        .login-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-container button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-container button:hover {
+            background-color: #005bb5;
+        }
+
+        .btn-container button.login-btn {
+            background-color: #0072ff;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .btn-container button.forgot-btn {
+            background-color: transparent;
+            color: #0072ff;
+        }
+
+        .btn-container button.signup-btn {
+            background-color: transparent;
+            color: #0072ff;
+        }
+
+        .moving-image {
+            position: absolute;
+            bottom: 20%; /* Adjust as needed */
+            left: 100%; /* Initially off-screen to the right */
+            animation: moveRightLeft 20s linear infinite; /* Animation for moving right to left */
+            width: auto; /* Automatically adjust width */
+            height: 500px; /* Adjust image height */
+            z-index: 0; /* Ensure image is behind the dialog box */
+        }
+
+        
+
+        .falling-leaf-left {
+            position: absolute;
+            top: -100px; /* Start above the viewport */
+            left: 10px; /* Fixed on the left side */
+            animation: fallDown 10s linear infinite; /* Animation for falling down */
+            z-index: 1; /* Ensure above the background */
+            width: 50px; /* Adjust image width */
+            transform-origin: center; /* Rotate around center */
+        }
+
+        .falling-leaf-right {
+            position: absolute;
+            top: -100px; /* Start above the viewport */
+            right: 10px; /* Fixed on the right side */
+            animation: fallDown 10s linear infinite; /* Animation for falling down */
+            z-index: 1; /* Ensure above the background */
+            width: 50px; /* Adjust image width */
+            transform-origin: center; /* Rotate around center */
+        }
+
+        .falling-leaf-middle-left {
+            position: absolute;
+            top: -100px; /* Start above the viewport */
+            left: 30%; /* Fixed on the middle left side */
+            animation: fallDown 10s linear infinite; /* Animation for falling down */
+            z-index: 1; /* Ensure above the background */
+            width: 50px; /* Adjust image width */
+            transform-origin: center; /* Rotate around center */
+        }
+
+        .falling-leaf-middle-right {
+            position: absolute;
+            top: -100px; /* Start above the viewport */
+            left: 70%; /* Fixed on the middle right side */
+            animation: fallDown 10s linear infinite; /* Animation for falling down */
+            z-index: 1; /* Ensure above the background */
+            width: 50px; /* Adjust image width */
+            transform-origin: center; /* Rotate around center */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">Login Form</div>
+        
+        <div class="input-container">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+        </div>
+        
+        <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+        </div>
+        
+        <div class="btn-container">
+            <button class="login-btn">Login</button>
+            <button class="forgot-btn">Forgot Password</button>
+        </div>
+
+        <div class="btn-container">
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Image below dialog box -->
+    <img src="https://images.vexels.com/media/users/3/182432/isolated/preview/5725ea863cc3288f217be2bd4d720e68-bicycle-girl-by-vexels.png" class="moving-image" alt="Moving Girl">
+
+    <!-- Falling leaf images -->
+    <img src="https://th.bing.com/th/id/R.d1dcb2e2809bc888ab4d877ee1f7852d?rik=xByd12PUgjJ0KQ&riu=http%3a%2f%2fclipart-library.com%2fnewimages%2fautumn-leaves-clip-art-32.png&ehk=8wWt3zzZ5QxJMV5wjnv7u185%2bt9lutxcWDjhOpxvq5o%3d&risl=1&pid=ImgRaw&r=0" class="falling-leaf-left" alt="Falling Leaf">
+    <img src="https://th.bing.com/th/id/R.d1dcb2e2809bc888ab4d877ee1f7852d?rik=xByd12PUgjJ0KQ&riu=http%3a%2f%2fclipart-library.com%2fnewimages%2fautumn-leaves-clip-art-32.png&ehk=8wWt3zzZ5QxJMV5wjnv7u185%2bt9lutxcWDjhOpxvq5o%3d&risl=1&pid=ImgRaw&r=0" class="falling-leaf-right" alt="Falling Leaf">
+    <img src="https://th.bing.com/th/id/R.d1dcb2e2809bc888ab4d877ee1f7852d?rik=xByd12PUgjJ0KQ&riu=http%3a%2f%2fclipart-library.com%2fnewimages%2fautumn-leaves-clip-art-32.png&ehk=8wWt3zzZ5QxJMV5wjnv7u185%2bt9lutxcWDjhOpxvq5o%3d&risl=1&pid=ImgRaw&r=0" class="falling-leaf-middle-left" alt="Falling Leaf">
+    <img src="https://th.bing.com/th/id/R.d1dcb2e2809bc888ab4d877ee1f7852d?rik=xByd12PUgjJ0KQ&riu=http%3a%2f%2fclipart-library.com%2fnewimages%2fautumn-leaves-clip-art-32.png&ehk=8wWt3zzZ5QxJMV5wjnv7u185%2bt9lutxcWDjhOpxvq5o%3d&risl=1&pid=ImgRaw&r=0" class="falling-leaf-middle-right" alt="Falling Leaf">
