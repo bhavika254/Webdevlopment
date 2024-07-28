@@ -23,3 +23,13 @@ This project demonstrates an animated login form with a dynamic background and m
 ## Technologies Used
 - **HTML**: For structuring the content.
 - **CSS**: For styling the interface and adding animations.
+
+## IMAGE SLIDER PROJECT
+This project is a responsive image slider with a black background and a blue glowing border effect. It uses HTML, CSS, and JavaScript to create a visually appealing slider that displays images with captions. The slider also includes navigation buttons to move between images.
+
+## Features
+-Responsive Design: The slider adjusts its layout based on the screen size, ensuring a great user experience on both desktop and mobile devices.
+-Black Blurred Background Overlay: A dark background overlay with a blur effect to highlight the slider content.
+-Blue Glowing Border: A border that glows blue when images transition.
+-Smooth Transitions: Images and captions fade in and out smoothly.
+-Navigation Buttons: Users can navigate through the images using left and right buttons
