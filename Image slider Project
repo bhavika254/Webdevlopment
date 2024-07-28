@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Slider</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000; /* Set background color to black */
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Black overlay with opacity */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            z-index: -1;
+        }
+
+        .slider-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden;
+            background: #000; /* Ensure the background is black */
+            border: 5px solid transparent;
+            border-radius: 10px; /* Optional: Add rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.8); /* Blue glowing border effect */
+            transition: box-shadow 1s ease-in-out;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .w3-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .w3-display-left {
+            left: 0;
+        }
+
+        .w3-display-right {
+            right: 0;
+        }
+
+        .fade.show {
+            opacity: 1;
+        }
+
+        .heading {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 2em;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .show-heading {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .w3-button {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .heading {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div> <!-- Black blurred background overlay -->
+
+    <div class="slider-container w3-content w3-display-container">
+        <img class="mySlides fade" src="https://www.tripsavvy.com/thmb/cNcBAPMxvMLrvA2gdn__EdOCvpI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1024237862-21e9fd7adafc4b8880ba650499432b31.jpg" alt="Slide 1">
+        <img class="mySlides fade" src="https://www.holidaymonk.com/wp-content/uploads/2021/09/Beautiful-Leh.jpg" alt="Slide 2">
+        <img class="mySlides fade" src="https://www.holidify.com/images/cmsuploads/compressed/Shanti_Stupa,_Leh,_Ladakh_20180305180249.jpg" alt="Slide 3">
+        <div class="heading">Ladakh</div>
+
+        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var heading = document.querySelector('.heading');
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].classList.remove("show");
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+            setTimeout(function() {
+                x[slideIndex-1].classList.add("show");
+            }, 10);
+
+            // Show and fade the heading
+            heading.classList.remove("show-heading");
+            setTimeout(function() {
+                heading.classList.add("show-heading");
+            }, 100);
+
+            // Add glowing effect
+            var sliderContainer = document.querySelector('.slider-container');
+            sliderContainer.style.boxShadow = '0 0 20px rgba(0, 0, 255, 0.8)';
+            setTimeout(function() {
+                sliderContainer.style.boxShadow = '0 0 20px rgba(0, 0, 255, 0)';
+            }, 1000); // Glowing effect duration
+        }
+    </script>
+
+</body>
+</html>
