@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/632782.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            padding: 20px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .add-to-cart-btn:active {
+            background-color: #1a5987;
+        }
+
+        @media (max-width: 768px) {
+            .product-price {
+                font-size: 18px;
+            }
+
+            .product-description {
+                font-size: 14px;
+            }
+
+            .add-to-cart-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .product-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-container">
+            <div class="product-image">
+                <img src="https://m.media-amazon.com/images/I/51G9t3fGrSL._SL1500_.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <p class="product-price">₹400</p>
+                <p class="product-description">Layer'r Wottagirl Secret Crush Body Splash For Women (135ml)</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/n/y/nylay00000002_1.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <p class="product-price">₹450</p>
+                <p class="product-description">Layer'r Wottagirl Mystic Island Body Splash (135ml)</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="product-image">
+                <img src="https://pimages.parfumo.de/720/146693_img-8826-layer-r-wottagirl-tuscan-green_720.jpg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <p class="product-price">₹350</p>
+                <p class="product-description">Wottagirl! - Tuscan Green Fragrant Body Splash (135ml)</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
